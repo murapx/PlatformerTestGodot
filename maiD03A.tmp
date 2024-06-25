@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch1go8cwsi8jh"]
+
+[ext_resource type="Texture2D" uid="uid://djv0p82md8vrl" path="res://square.png" id="1_msw2t"]
+[ext_resource type="PackedScene" uid="uid://6spgoimugvc3" path="res://player.tscn" id="2_x0how"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0ld4"]
+texture = ExtResource("1_msw2t")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_q3kb4"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_f0ld4")
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_q3kb4")
+format = 2
+layer_0/tile_data = PackedInt32Array(720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 786450, 0, 0, 786449, 0, 0, 786451, 0, 0, 786432, 0, 0, 786448, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 720901, 0, 0, 720902, 0, 0, 655360, 0, 0, 589824, 0, 0, 524288, 0, 0, 458752, 0, 0, 393216, 0, 0, 327680, 0, 0, 262144, 0, 0, 196608, 0, 0, 131072, 0, 0, 65536, 0, 0, 0, 0, 0, -65536, 0, 0, -131072, 0, 0, -196608, 0, 0, -262144, 0, 0, -327680, 0, 0, -393216, 0, 0, -458752, 0, 0, -524288, 0, 0, -589824, 0, 0, -655360, 0, 0, -720896, 0, 0, -786432, 0, 0, -851968, 0, 0, -917504, 0, 0, -983040, 0, 0, -1048576, 0, 0, -2162688, 0, 0, -2097152, 0, 0, -2031616, 0, 0, -1966080, 0, 0, -1900544, 0, 0, -1835008, 0, 0, -1769472, 0, 0, -1703936, 0, 0, -1638400, 0, 0, -1572864, 0, 0, -1507328, 0, 0, -1441792, 0, 0, -1376256, 0, 0, -1310720, 0, 0, -1245184, 0, 0, -1179648, 0, 0, -1114112, 0, 0)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_x0how")]
+position = Vector2(83, 125)

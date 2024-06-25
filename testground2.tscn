@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1xdhqwnv6kh3"]
+
+[ext_resource type="PackedScene" uid="uid://6spgoimugvc3" path="res://player.tscn" id="1_76tl1"]
+[ext_resource type="Script" path="res://CollisionPolygon2D.gd" id="2_5b2bm"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_76tl1")]
+z_index = 1
+position = Vector2(10, 232)
+
+[node name="LevelCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelCollision"]
+polygon = PackedVector2Array(-16, 232, 72, 232, 72, 176, 88, 176, 88, 256, -32, 256, -56, 232, -56, 192, -32, 192, -32, 232)
+script = ExtResource("2_5b2bm")
+
+[node name="Polygon2D" type="Polygon2D" parent="LevelCollision/CollisionPolygon2D"]
