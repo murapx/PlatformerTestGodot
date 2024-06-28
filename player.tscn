@@ -6,9 +6,6 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ooa2m"]
 blend_mode = 1
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qh06b"]
-size = Vector2(9, 30)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_lk1n7"]
 atlas = ExtResource("2_yvj0g")
 region = Rect2(0, 0, 32, 32)
@@ -115,41 +112,50 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ia7bp"]
+size = Vector2(14, 24)
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-1, 0)
+slide_on_ceiling = false
 floor_stop_on_slope = false
-floor_max_angle = 1.309
-floor_snap_length = 3.0
+floor_constant_speed = true
+floor_max_angle = 1.21824
+floor_snap_length = 5.3
 script = ExtResource("1_jjl57")
-max_speed = 150.0
-friction = 30.0
-acceleration = 10.0
-jump_height = 300.0
-gravity_on_rise = 25.0
-gravity_on_fall = 10.0
+max_speed = 140.0
+jump_speed = 310.0
+max_fall_speed = 300.0
+gravity_on_rise = 12.0
+gravity_on_fall = 9.0
+acceleration_ground = 15.0
+acceleration_air = 8.0
+friction_ground = 50.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("CanvasItemMaterial_ooa2m")
-offset_left = -11.0
-offset_top = -30.0
-offset_right = 10.0
+offset_left = -7.0
+offset_top = -24.0
+offset_right = 7.0
 color = Color(1, 0, 0, 1)
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
-shape = SubResource("RectangleShape2D_qh06b")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-drag_horizontal_offset = 1.0
-drag_right_margin = 0.29
-drag_bottom_margin = 0.1
+position_smoothing_speed = 10.0
+drag_vertical_enabled = true
+drag_vertical_offset = 1.0
+drag_top_margin = 0.21
+drag_right_margin = 0.0
+drag_bottom_margin = 0.15
 editor_draw_screen = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s5scu")
-animation = &"running"
-frame_progress = 0.753855
+animation = &"walking"
+frame_progress = 0.0209288
 speed_scale = 3.0
 offset = Vector2(0, -16)
 metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_ia7bp")
