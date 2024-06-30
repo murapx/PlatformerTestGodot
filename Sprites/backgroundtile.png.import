@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4rkl1vdru66i"
-path="res://.godot/imported/solidblock.png-1f579ad4cf66eaf5e191487956867880.ctex"
+uid="uid://3gyf356ptm7"
+path="res://.godot/imported/backgroundtile.png-be2fa7b0e389956e6ab5a804e7e7bcd9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://solidblock.png"
-dest_files=["res://.godot/imported/solidblock.png-1f579ad4cf66eaf5e191487956867880.ctex"]
+source_file="res://Sprites/backgroundtile.png"
+dest_files=["res://.godot/imported/backgroundtile.png-be2fa7b0e389956e6ab5a804e7e7bcd9.ctex"]
 
 [params]
 

@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1xdhqwnv6kh3"]
+
+[ext_resource type="Script" path="res://Script/Stages/testground2.gd" id="1_gssmc"]
+[ext_resource type="Script" path="res://Scenes/Stages/Testing/LevelCollision.gd" id="2_4h6sw"]
+[ext_resource type="Script" path="res://Script/Stages/CollisionPolygon2D.gd" id="2_slw4p"]
+[ext_resource type="Texture2D" uid="uid://3gyf356ptm7" path="res://Sprites/backgroundtile.png" id="3_jrast"]
+[ext_resource type="PackedScene" uid="uid://6spgoimugvc3" path="res://Scenes/player.tscn" id="4_1j5hm"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xubpt"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_gssmc")
+
+[node name="LevelCollision" type="AnimatableBody2D" parent="."]
+script = ExtResource("2_4h6sw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelCollision"]
+position = Vector2(88, -152)
+polygon = PackedVector2Array(-64, 240, -56, 224, -40, 224, -24, 200, 24, 200, 0, 176, 16, 176, 24, 144, 40, 144, 48, 104, 56, 104, 56, 280, 96, 280, 96, 264, 128, 264, 128, 280, 160, 280, 160, 256, 176, 256, 176, 280, 184, 288, 128, 288, -96, 288, -152, 288, -344, 216, -362, 222, -355.5, 212.5, -351, 204.5, -343, 194.5, -337.5, 184, -332, 178.5, -320, 128, -312, 144, -304, 160, -296, 168, -279, 175, -279.5, 189, -275, 196.5, -270, 204.5, -259.5, 209.5, -247, 212, -239.5, 220.5, -227.5, 229.5, -219.5, 249.5, -204.5, 263.5, -191.87, 264, -128, 264, -112, 256, -96, 256, -80, 240)
+script = ExtResource("2_slw4p")
+
+[node name="Polygon2D" type="Polygon2D" parent="LevelCollision/CollisionPolygon2D"]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(16, 176)
+
+[node name="StaticBody2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 304)
+shape = SubResource("WorldBoundaryShape2D_xubpt")
+disabled = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.20871, 0.20871, 0.20871, 1)
+offset_right = 784.0
+offset_bottom = 384.0
+texture = ExtResource("3_jrast")
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("4_1j5hm")]
+position = Vector2(-90, 98)
+
+[connection signal="body_entered" from="StaticBody2D" to="." method="_on_static_body_2d_body_entered"]
